@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-to-Speech with JavaScript</title>
+    <style>
+      body {
+        background-color: rgb(39, 39, 39);
+      }
+      h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(
+          to right,
+          #f32170,
+          #ff6b08,
+          #cf23cf,
+          #eedd44
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+      .container {
+        width: 500px;
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        margin-top: 10%;
+        border-radius: 10px;
+        animation: animatedBorder 4s linear 0s infinite;
+      }
+      @keyframes animatedBorder {
+        25% {
+          border-top: #cf23cf;
+        }
+        50%{
+            border-right: #eedd44;
+        }
+        75%{
+            border-bottom: #f32170;
+        }
+        100%{
+            border-left: #ff6b08;
+        }
+
+        
+      }
+      .input_part {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        gap: 10px;
+        width: 85%;
+      }
+      label{
+        background: linear-gradient(to right,
+          #f32170,
+          #ff6b08,
+          #cf23cf,
+          #eedd44 );
+          -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        
+      }
+      #voice,input,textarea{
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+      }
+      .btns{
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+      .btn{
+        padding: 10px;
+        width: 20%;
+        font-size: 20px;
+        border-radius: 10px;
+        background: linear-gradient(to right,
+          #f32170,
+          #ff6b08,
+          #cf23cf,
+          #eedd44 );
+          -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+      span{
+        margin-bottom: -20px;
+        font-size: 20px;
+        background: linear-gradient(to right,
+          #f32170,
+          #ff6b08,
+          #cf23cf,
+          #eedd44 );
+          -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>The voiceinator 5000</h1>
+      </div>
+      <div class="input_part">
+        <select name="voice" id="voice">
+        </select>
+            <label for="rate">Rate</label>
+            <span id="RateValue">5.0</span>
+            <input type="range" min="0.1" max="10" step="0.1" value="1" id="RateRange"/>
+        
+            <label for="pitch">Pitch</label>
+            <span id="PitchValue">1.5</span>
+            <input type="range" min="0" max="2" step="0.1" value="1" id="PithchRange"/>
+        
+        <textarea id="text-to-read" rows="5" cols="40"></textarea>
+      </div>
+      <div class="btns">
+        <button id="stop-button" class="btn">Stop</button>
+        <button id="speak-button" class="btn">Speak</button>
+      </div>
+    </div>
+
+    <script src="./textToSpeech.js"></script>
+  </body>
+</html>
